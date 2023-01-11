@@ -10,7 +10,7 @@ function Container() {
       </div>
       <footer>
         <div id="copyright">
-          Made with <span style={{ color: "#e25555" }}>♥ </span>
+          Made with <span style={{ color: "blue" }}>♥ </span>
           <b>Sinan Sarıkaya</b>
         </div>
       </footer>
