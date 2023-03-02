@@ -5,7 +5,7 @@ function Container() {
   const { theme } = useTheme();
   return (
     <main className={`${theme}`}>
-      <div className={`container ${theme}`}>
+      <div >
         <Weather />
       </div>
       <footer>

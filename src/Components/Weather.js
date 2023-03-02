@@ -1,5 +1,7 @@
 import { useWeather } from "../context/WeatherContext";
 import { useTheme } from "../context/ThemeContext";
+import { Box, Container, Typography, AppBar, Grid } from "@mui/material";
+
 
 function Weather() {
   const {
@@ -51,8 +53,14 @@ function Weather() {
     }
   }
   return (
-    <>
-      <aside>
+    <Box color= "Primary">
+       <Grid container spacing={2}>
+    <AppBar position="static" sx={{backgroundImage:"linear-gradient(90deg, rgba(56,52,52,0.989233193277311) 0%, rgba(25,25,25,0.9752275910364145) 100%);"}}>
+      <Grid item xs={12}>
+      <Container maxWidth="xl">
+  
+    <aside>
+    <Typography variant="overline" component="h4" align="justify" text-align="justify" marginTop={3}>
         <div className={`aside ${theme}`}>
           <div className="aside-container">
             <div className="aside-header">
@@ -74,7 +82,7 @@ function Weather() {
                 ))}
               </select>
             </div>
-            <div className="aside-main">
+            <div>
               <h1>{selected.name}</h1>
               <h2>
                 <span>{createDate(weathers?.current?.dt)}</span>
@@ -93,7 +101,7 @@ function Weather() {
                   <span> &#8457; </span>
                 )}
               </span>
-              <div className="aside-main-item">
+              <div>
                 <div>
                   Feels Like
                   <span className="material-symbols-rounded">
@@ -109,7 +117,7 @@ function Weather() {
                   )}
                 </span>
               </div>
-              <div className="aside-main-item">
+              <div>
                 <div>
                   Day
                   <span className="material-symbols-rounded">light_mode</span>
@@ -123,7 +131,7 @@ function Weather() {
                   )}
                 </span>
               </div>
-              <div className="aside-main-item">
+              <div>
                 <div>
                   Night
                   <span className="material-symbols-rounded">bedtime</span>
@@ -137,14 +145,14 @@ function Weather() {
                   )}
                 </span>
               </div>
-              <div className="aside-main-item">
+              <div >
                 <div>
                   Humidity
                   <ion-icon name="water"></ion-icon>
                 </div>
                 <span>{weathers?.current?.humidity}%</span>
               </div>
-              <div className="aside-main-item">
+              <div >
                 <div>
                   Wind
                   <span className="material-symbols-rounded">air</span>
@@ -152,7 +160,7 @@ function Weather() {
                 <span>{weathers?.current?.wind_speed}</span>
               </div>
             </div>
-            <div className="aside-footer">
+            <div >
               <span
                 className="mode"
                 onClick={() => setTheme(theme === "Dark" ? "Light" : "Dark")}
@@ -163,10 +171,10 @@ function Weather() {
                   <ion-icon name="moon"></ion-icon>
                 )}
               </span>
-              <div className="unity">
+              <div >
                 <div>C</div>
                 <div>
-                  <label className="switch">
+                  <label>
                     <input type="checkbox" onChange={handleSwitch} />
                     <span className="slider round"></span>
                   </label>
@@ -183,13 +191,19 @@ function Weather() {
             </div>
           </div>
         </div>
+        </Typography>  
+        
       </aside>
+
+     
+     
+      <Typography variant="overline" component="h4" align="justify" text-align="justify" marginTop={6}>
       <section>
-        <div className="section-container">
+        <div>
           {weathers?.daily?.map((dayily, i) => (
             <div key={i} className={`grid-item ${theme}`}>
-              <div className="grid-item-header">{createDate(dayily?.dt)}</div>
-              <div className="grid-item-container">
+              <div >{createDate(dayily?.dt)}</div>
+              <div >
                 <img
                   src={`http://openweathermap.org/img/wn/${dayily?.weather?.[0].icon}@2x.png`}
                 />
@@ -217,8 +231,16 @@ function Weather() {
             </div>
           ))}
         </div>
+       
       </section>
-    </>
+      </Typography>
+      </Container>
+      </Grid>
+      </AppBar>
+   
+      </Grid>
+  
+      </Box>
   );
 }
 

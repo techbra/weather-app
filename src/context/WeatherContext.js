@@ -7,7 +7,7 @@ export const WeatherProvider = ({ children }) => {
   const [cities, setCities] = useState([]);
   const [selected, setSelected] = useState({
     id: 1,
-    name: "Adana",
+    name: "Almafuerte",
     latitude: "37.0000",
     longitude: "35.3213",
     population: 2183167,
